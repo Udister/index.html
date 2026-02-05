@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Evolution of HTML</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        
+        .timeline-item {
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .timeline-dot {
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover .timeline-dot {
+            transform: scale(1.2);
+            box-shadow: 0 0 15px rgba(139, 92, 246, 0.7);
+        }
+        
+        .timeline-line {
+            background: linear-gradient(to bottom, #4f46e5, #8b5cf6, #d946ef);
+        }
+        
+        .hero-bg {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%233b82f6' fill-opacity='0.2'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background-color: #1e293b;
+        }
+        
+        .card {
+            transition: all 0.3s ease;
+            background: #1e293b;
+            border: 1px solid #2d3748;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+            animation: glow 1.5s infinite alternate;
+        }
+        
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 10px -5px #ffe8d6;
+            }
+            to {
+                box-shadow: 0 0 20px 5px #ffe8d6;
+            }
+        }
+        
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .section-highlight {
+            animation: section-glow 2s ease;
+        }
+        
+        @keyframes section-glow {
+            0% { box-shadow: 0 0 0 rgba(255, 232, 214, 0); }
+            50% { box-shadow: 0 0 30px 10px rgba(255, 232, 214, 0.8); }
+            100% { box-shadow: 0 0 0 rgba(255, 232, 214, 0); }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+    <!-- Hero Section -->
+    <section class="hero-bg py-20 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-5xl mx-auto text-center">
+            <h1 class="text-5xl md:text-6xl font-bold text-purple-400 mb-6">The Evolution of HTML</h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">From simple markup to the backbone of the modern web</p>
+            
+            <div class="mt-12 flex justify-center">
+                <a href="#timeline" class="bg-purple-600 hover:bg-purple-700 text-white font-medium py-3 px-8 rounded-full transition-all duration-300 flex items-center border border-purple-400">
+                    Explore the Timeline
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-900 rounded-xl shadow-lg p-6 card border-2 border-purple-500">
+                    <div class="w-16 h-16 bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-purple-300 mb-2">Origins</h3>
+                    <p class="text-gray-300">Created by Tim Berners-Lee in 1989 at CERN to share scientific documents across networks.</p>
+                </div>
+                
+                <div class="bg-gray-900 rounded-xl shadow-lg p-6 card border-2 border-purple-500">
+                    <div class="w-16 h-16 bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-purple-300 mb-2">Evolution</h3>
+                    <p class="text-gray-300">From basic markup to a sophisticated language supporting complex web applications and multimedia.</p>
+                </div>
+                
+                <div class="bg-gray-900 rounded-xl shadow-lg p-6 card border-2 border-purple-500">
+                    <div class="w-16 h-16 bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-purple-300 mb-2">Impact</h3>
+                    <p class="text-gray-300">HTML has transformed how we access information, communicate, work, and entertain ourselves online.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Timeline Section -->
+    <section id="timeline" class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-purple-900">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-purple-300 mb-16">The HTML Timeline</h2>
+            
+            <div class="relative">
+                <!-- Vertical Line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 timeline-line"></div>
+                
+                <!-- Timeline Items -->
+                <div class="timeline-container">
+                    <!-- 1989-1991 -->
+                    <div class="timeline-item mb-16 flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-8 mb-8 md:mb-0 md:text-right">
+                            <div class="bg-gray-900 rounded-xl shadow-lg p-6 border-2 border-purple-500 hover:border-purple-300">
+                                <span class="inline-block bg-purple-700 text-purple-100 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-2">1989-1991</span>
+                                <h3 class="text-2xl font-bold text-purple-300 mb-2">The Birth of HTML</h3>
+                                <p class="text-gray-300">Tim Berners-Lee creates HTML at CERN as a way to structure and link documents for sharing research papers across different computers.</p>
+                                <div class="mt-4 flex md:justify-end">
+                                    <span class="bg-purple-900 text-purple-200 text-xs font-medium px-2.5 py-0.5 rounded-full border border-purple-500 mr-2">WorldWideWeb Browser</span>
+                                    <span class="bg-purple-900 text-purple-200 text-xs font-medium px-2.5 py-0.5 rounded-full border border-purple-500">First Web Server</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-dot absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-purple-400 border-4 border-gray-900 shadow-lg z-10"></div>
+                        <div class="md:w-1/2 md:pl-8"></div>
+                    </div>
+                    
+                    <!-- 1995 -->
+                    <div class="timeline-item mb-16 flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-8"></div>
+                        <div class="timeline-dot absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-purple-400 border-4 border-gray-900 shadow-lg z-10"></div>
+                        <div class="md:w-1/2 md:pl-8 mb-8 md:mb-0">
+                            <div class="bg-gray-900 rounded-xl shadow-lg p-6 border-2 border-purple-500 hover:border-purple-300">
+                                <span class="inline-block bg-purple-700 text-purple-100 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-2">1995</span>
+                                <h3 class="text-2xl font-bold text-purple-300 mb-2">HTML 2.0</h3>
+                                <p class="text-gray-300">The first standardized version of HTML, published by the IETF. It formalized many features and added form elements for interactive web pages.</p>
+                                <div class="mt-4 flex">
+                                    <span class="bg-purple-900 text-purple-200 text-xs font-medium px-2.5 py-0.5 rounded-full border border-purple-500 mr-2">Forms</span>
+                                    <span class="bg-purple-900 text-purple-200 text-xs font-medium px-2.5 py-0.5 rounded-full border border-purple-500 mr-2">Tables</span>
+                                    <span class="bg-purple-900 text-purple-200 text-xs font-medium px-2.5 py-0.5 rounded-full border border-purple-500">Images</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 1997 HTML 3.2 -->
+                    <div class="timeline-item mb-16 flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-8 mb-8 md:mb-0 md:text-right">
+                            <div class="bg-gray-900 rounded-xl shadow-lg p-6 border-2 border-purple-500 hover:border-purple-300">
+                                <span class="inline-block bg-purple-700 text-purple-100 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-2">1997</span>
+                                <h3 class="text-2xl font-bold text-purple-300 mb-2">HTML 3.2</h3>
+                                <p class="text-gray-300">The first version developed by the W3C. It incorporated features from browsers like Netscape Navigator and Internet Explorer.</p>
+                                <div class="mt-4 flex md:justify-end">
+                                    <span class="bg-purple-900 text-purple-200 text-xs font-medium px-2.5 py-0.5 rounded-full border border-purple-500 mr-2">Applets</span>
+                                    <span class="bg-purple-900 text-purple-200 text-xs font-medium px-2.5 py-0.5 rounded-full border border-purple-500 mr-2">Scripting</span>
+                                    <span class="bg-purple-900 text-purple-200 text-xs font-medium px-2.5 py-0.5 rounded-full border border-purple-500">Font Tags</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-dot absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-purple-400 border-4 border-gray-900 shadow-lg z-10"></div>
+                        <div class="md:w-1/2 md:pl-8"></div>
+                    </div>
+                    
+                    <!-- 1997-1999 HTML 4.0 -->
+                    <div class="timeline-item mb-16 flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-8"></div>
+                        <div class="timeline-dot absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-purple-400 border-4 border-gray-900 shadow-lg z-10"></div>
+                        <div class="md:w-1/2 md:pl-8 mb-8 md:mb-0">
+                            <div class="bg-gray-900 rounded-xl shadow-lg p-6 border-2 border-purple-500 hover:border-purple-300">
+                                <span class="inline-block bg-purple-700 text-purple-100 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-2">1997-1999</span>
+                                <h3 class="text-2xl font-bold text-purple-300 mb-2">HTML 4.0 and 4.01</h3>
+                                <p class="text-gray-300">A significant shift introducing separation between content and presentation. This version encouraged the use of CSS for styling.</p>
+                                <div class="mt-4 flex flex-wrap">
+                                    <span class="bg-purple-900 text-purple-200 text-xs font-medium px-2.5 py-0.5 rounded-full border border-purple-500 mr-2 mb-2">CSS Support</span>
+                                    <span class="bg-purple-900 text-purple-200 text-xs font-medium px-2.5 py-0.5 rounded-full border border-purple-500 mr-2 mb-2">Accessibility</span>
+                                    <span class="bg-purple-900 text-purple-200 text-xs font-medium px-2.5 py-0.5 rounded-full border border-purple-500 mb-2">Internationalization</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 2000 XHTML -->
+                    <div class="timeline-item mb-16 flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-8 mb-8 md:mb-0 md:text-right">
+                            <div class="bg-gray-900 rounded-xl shadow-lg p-6 border-2 border-purple-500 hover:border-purple-300">
+                                <span class="inline-block bg-purple-700 text-purple-100 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-2">2000</span>
+                                <h3 class="text-2xl font-bold text-purple-300 mb-2">XHTML 1.0</h3>
+                                <p class="text-gray-300">Reformulated HTML as an XML application with stricter syntax rules to improve interoperability and prepare for a more structured web.</p>
+                                <div class="mt-4 flex md:justify-end flex-wrap">
+                                    <span class="bg-purple-900 text-purple-200 text-xs font-medium px-2.5 py-0.5 rounded-full border border-purple-500 mr-2 mb-2">XML Syntax</span>
+                                    <span class="bg-purple-900 text-purple-200 text-xs font-medium px-2.5 py-0.5 rounded-full border border-purple-500 mr-2 mb-2">Strict Rules</span>
+                                    <span class="bg-purple-900 text-purple-200 text-xs font-medium px-2.5 py-0.5 rounded-full border border-purple-500 mb-2">Proper Nesting</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-dot absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-purple-400 border-4 border-gray-900 shadow-lg z-10"></div>
+                        <div class="md:w-1/2 md:pl-8"></div>
+                    </div>
+                    
+                    <!-- 2008-2014 HTML5 -->
+                    <div class="timeline-item mb-16 flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-8"></div>
+                        <div class="timeline-dot absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-purple-400 border-4 border-gray-900 shadow-lg z-10"></div>
+                        <div class="md:w-1/2 md:pl-8 mb-8 md:mb-0">
+                            <div class="bg-gray-900 rounded-xl shadow-lg p-6 border-2 border-purple-500 hover:border-purple-300">
+                                <span class="inline-block bg-purple-700 text-purple-100 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-2">2008-2014</span>
+                                <h3 class="text-2xl font-bold text-purple-300 mb-2">HTML5</h3>
+                                <p class="text-gray-300">A major evolution introducing semantic elements, form controls, and APIs for advanced web applications. Designed with modern web needs in mind.</p>
+                                <div class="mt-4 flex flex-wrap">
+                                    <span class="bg-purple-900 text-purple-200 text-xs font-medium px-2.5 py-0.5 rounded-full border border-purple-500 mr-2 mb-2">Semantic Elements</span>
+                                    <span class="bg-purple-900 text-purple-200 text-xs font-medium px-2.5 py-0.5 rounded-full border border-purple-500 mr-2 mb-2">Audio/Video</span>
+                                    <span class="bg-purple-900 text-purple-200 text-xs font-medium px-2.5 py-0.5 rounded-full border border-purple-500 mr-2 mb-2">Canvas</span>
+                                    <span class="bg-purple-900 text-purple-200 text-xs font-medium px-2.5 py-0.5 rounded-full border border-purple-500 mb-2">Local Storage</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Present and Future -->
+                    <div class="timeline-item flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2 md:pr-8 mb-8 md:mb-0 md:text-right">
+                            <div class="bg-gray-900 rounded-xl shadow-lg p-6 border-2 border-purple-500 hover:border-purple-300">
+                                <span class="inline-block bg-purple-700 text-purple-100 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-2">Present & Future</span>
+                                <h3 class="text-2xl font-bold text-purple-300 mb-2">HTML Living Standard</h3>
+                                <p class="text-gray-300">HTML continues to evolve with regular updates. Modern web development combines HTML with CSS and JavaScript to create powerful applications.</p>
+                                <div class="mt-4 flex md:justify-end flex-wrap">
+                                    <span class="bg-purple-900 text-purple-200 text-xs font-medium px-2.5 py-0.5 rounded-full border border-purple-500 mr-2 mb-2">Progressive Web Apps</span>
+                                    <span class="bg-purple-900 text-purple-200 text-xs font-medium px-2.5 py-0.5 rounded-full border border-purple-500 mr-2 mb-2">Web Components</span>
+                                    <span class="bg-purple-900 text-purple-200 text-xs font-medium px-2.5 py-0.5 rounded-full border border-purple-500 mb-2">AR/VR Support</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-dot absolute left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-purple-400 border-4 border-gray-900 shadow-lg z-10"></div>
+                        <div class="md:w-1/2 md:pl-8"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Key Features Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-indigo-900">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-purple-400 mb-16">Key HTML Innovations</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-gray-900 rounded-xl shadow-lg p-6 card border-2 border-purple-500">
+                    <div class="w-12 h-12 bg-purple-900 rounded-full flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-purple-300 mb-2">Hyperlinks</h3>
+                    <p class="text-gray-300">The revolutionary ability to link documents together, creating the web of information we know today.</p>
+                </div>
+                
+                <div class="bg-gray-900 rounded-xl shadow-lg p-6 card border-2 border-purple-500">
+                    <div class="w-12 h-12 bg-purple-900 rounded-full flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-purple-300 mb-2">Images</h3>
+                    <p class="text-gray-300">The ability to display images transformed the web from text-only to a rich visual medium.</p>
+                </div>
+                
+                <div class="bg-gray-900 rounded-xl shadow-lg p-6 card border-2 border-purple-500">
+                    <div class="w-12 h-12 bg-purple-900 rounded-full flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-purple-300 mb-2">Forms</h3>
+                    <p class="text-gray-300">Interactive elements that allowed users to input data and communicate with web servers.</p>
+                </div>
+                
+                <div class="bg-gray-900 rounded-xl shadow-lg p-6 card border-2 border-purple-500">
+                    <div class="w-12 h-12 bg-purple-900 rounded-full flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-purple-300 mb-2">CSS Integration</h3>
+                    <p class="text-gray-300">Separation of content and presentation, allowing for more flexible and maintainable web design.</p>
+                </div>
+                
+                <div class="bg-gray-900 rounded-xl shadow-lg p-6 card border-2 border-purple-500">
+                    <div class="w-12 h-12 bg-purple-900 rounded-full flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4v16M17 4v16M3 8h4m10 0h4M3 12h18M3 16h4m10 0h4M4 20h16a1 1 0 001-1V5a1 1 0 00-1-1H4a1 1 0 00-1 1v14a1 1 0 001 1z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-purple-300 mb-2">Multimedia</h3>
+                    <p class="text-gray-300">Native support for audio and video without plugins, making rich media experiences accessible to all.</p>
+                </div>
+                
+                <div class="bg-gray-900 rounded-xl shadow-lg p-6 card border-2 border-purple-500">
+                    <div class="w-12 h-12 bg-purple-900 rounded-full flex items-center justify-center mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-purple-300 mb-2">APIs & Storage</h3>
+                    <p class="text-gray-300">Local storage, geolocation, and other APIs that enable powerful web applications that work offline.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Impact Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-purple-900">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl font-bold text-center text-purple-300 mb-16">The Impact of HTML</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-bold text-purple-400 mb-4">Democratizing Information</h3>
+                        <p class="text-gray-300">HTML made information accessible to anyone with an internet connection, breaking down barriers to knowledge and creating a more connected world.</p>
+                    </div>
+                    
+                    <div class="mb-8">
+                        <h3 class="text-2xl font-bold text-purple-400 mb-4">Transforming Business</h3>
+                        <p class="text-gray-300">From e-commerce to digital marketing, HTML enabled new business models and transformed how companies operate and reach customers.</p>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-bold text-purple-400 mb-4">Enabling Innovation</h3>
+                        <p class="text-gray-300">As the foundation of the web, HTML has enabled countless innovations from social media to streaming services, changing how we communicate and consume content.</p>
+                    </div>
+                </div>
+                
+                <div class="relative">
+                    <div class="bg-gray-800 rounded-xl shadow-xl p-8 relative z-10 border-2 border-purple-500">
+                        <div class="text-5xl text-purple-400 mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <blockquote class="text-xl italic text-gray-300 mb-6">
+                            "The original idea of the web was that it should be a collaborative space where you can communicate through sharing information."
+                        </blockquote>
+                        <div class="font-semibold text-purple-300">Tim Berners-Lee</div>
+                        <div class="text-gray-400">Inventor of HTML and the World Wide Web</div>
+                    </div>
+                    
+                    <div class="absolute top-4 right-4 w-64 h-64 bg-purple-900 rounded-full opacity-30 animate-float" style="z-index: 1;"></div>
+                    <div class="absolute bottom-4 left-4 w-40 h-40 bg-purple-800 rounded-full opacity-30 animate-float" style="animation-delay: 2s; z-index: 1;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Future Section -->
+    <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-indigo-900">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-3xl font-bold text-purple-400 mb-6">The Future of HTML</h2>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-12">HTML continues to evolve, adapting to new technologies and user needs. The future promises even more powerful web experiences.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-900 rounded-xl shadow-lg p-6 card border-2 border-purple-500">
+                    <div class="w-16 h-16 bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-purple-300 mb-2">Progressive Web Apps</h3>
+                    <p class="text-gray-300">Web applications that offer app-like experiences with offline capabilities, push notifications, and home screen installation.</p>
+                </div>
+                
+                <div class="bg-gray-900 rounded-xl shadow-lg p-6 card border-2 border-purple-500">
+                    <div class="w-16 h-16 bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-purple-300 mb-2">Web Components</h3>
+                    <p class="text-gray-300">Reusable, encapsulated HTML elements that make it easier to build and maintain complex web applications.</p>
+                </div>
+                
+                <div class="bg-gray-900 rounded-xl shadow-lg p-6 card border-2 border-purple-500">
+                    <div class="w-16 h-16 bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-purple-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-purple-300 mb-2">Immersive Web</h3>
+                    <p class="text-gray-300">Integration with AR/VR technologies to create immersive 3D experiences directly in the browser.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="bg-purple-900 text-white py-12 px-4">
+        <div class="max-w-5xl mx-auto text-center">
+            <h2 class="text-2xl font-bold mb-6">The Evolution of HTML</h2>
+            <p class="mb-8">From simple markup to the backbone of the modern web</p>
+            <p class="text-gray-300">Created for S.S.D public school | &copy; Made by $hivnarayan sharma </p>
+        </div>
+    </footer>
+    
+    <script>
+        // Smooth scrolling for anchor links with bounce effect
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // First smooth scroll to slightly above the target
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 50,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Then after a short delay, scroll to the exact position with a bounce effect
+                    setTimeout(() => {
+                        window.scrollTo({
+                            top: targetElement.offsetTop,
+                            behavior: 'smooth'
+                        });
+                        
+                        // Add temporary highlight glow to the section
+                        targetElement.classList.add('section-highlight');
+                        setTimeout(() => {
+                            targetElement.classList.remove('section-highlight');
+                        }, 2000);
+                    }, 500);
+                }
+            });
+        });
+        
+        // Animate timeline items on scroll
+        function animateOnScroll() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            
+            timelineItems.forEach(item => {
+                const itemPosition = item.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (itemPosition < screenPosition) {
+                    item.style.opacity = '1';
+                } else {
+                    item.style.opacity = '0.5';
+                }
+            });
+        }
+        
+        // Set initial opacity
+        document.querySelectorAll('.timeline-item').forEach(item => {
+            item.style.opacity = '0.5';
+            item.style.transition = 'opacity 0.5s ease';
+        });
+        
+        // Run on load and scroll
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'960aa21582c591d9',t:'MTc1Mjc2NDY4MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
